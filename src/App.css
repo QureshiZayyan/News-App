@@ -1,10 +1,15 @@
 body {
   font-family: 'Poppins', sans-serif;
   background-color: rgb(242, 238, 238);
+  /* background-color: grey; */
 }
 
 .card {
   border-radius: 13px;
-   box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   overflow: hidden;
+}
+
+#news-content {
+  /* background-color: black; */
 }
