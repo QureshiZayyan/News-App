@@ -10,6 +10,29 @@ body {
   overflow: hidden;
 }
 
-#news-content {
-  /* background-color: black; */
+.loader {
+  position: absolute;
+  color: black;
+  /* color: rgb(92, 90, 90); */
+  /* color: white; */
+  margin: 0 auto;
+  text-align: center;
+}
+
+.loading-icon {
+  animation: loading 6s linear infinite;
+  position: relative;
+  left: 50;
+  right: 50;
+  top: 150px;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }

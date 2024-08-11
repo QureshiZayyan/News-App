@@ -1,5 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
+import { FiLoader } from "react-icons/fi";
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -76,7 +77,9 @@ const App = () => {
           {
             loading
               ?
-              <p>loading...</p>
+              <div className='loader'>
+                <FiLoader size={50} className='loading-icon' />
+              </div>
               :
               errors ? <p>some error occured</p>
                 :
