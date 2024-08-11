@@ -5,7 +5,7 @@ import { FiLoader } from "react-icons/fi";
 const App = () => {
   const [data, setData] = useState([]);
   const [input, SetInput] = useState('');
-  const [query, setQuery] = useState('mumbai');
+  const [query, setQuery] = useState('cricket');
   const [loading, setLoading] = useState(true);
   const [errors, setErrors] = useState(false);
 
@@ -73,7 +73,7 @@ const App = () => {
 
       <main>
 
-        <div id="cards-container" className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:gap-x-4 md:gap-x-20 lg:gap-x-4 mx-20 place-items-center my-12">
+        <div id="cards-container" className="grid md:grid-cols-3 lg:grid-cols-4 md:mx-[4.4vw] lg:mx-[6.5vw] xl:mx-[7.8vw] place-items-center my-12">
           {
             loading
               ?
@@ -86,24 +86,30 @@ const App = () => {
                 data && data.length > 0
                   ?
                   data.map((article) => (
-                    <div id="card"
-                      key={article} className="card w-[30vw] sm:w-[40vw] md:w-[28vw] lg:w-[20vw] xl:w-[268.8px] my-4 hover:opacity-[5] shadow-md">
-                      <div id="card-img" className="w-full">
-                        <img src={article.urlToImage} alt="" id="newsimg" className="h-[125px] sm:h-[100px] md:h-[130px] w-full" />
-                      </div>
-                      <div id="news-content"
-                        className="h-[150px] md:h-[180px] lg:h-[180px] xl:h-[180px] px-[5px] py-[5px] bg-white text-black text-sm">
-                        <h2 id="news-desc">{truncateText(article.description, 110)}</h2>
-                        <a href={article.url} className="link inline-block hover:underline hover:text-blue-700 my-[2px]"
-                          target="_blank" id="newslink">Read More...</a>
-                        <p id="publishedat">PublishedAt : {new Date(article.publishedAt).toLocaleDateString()}</p>
-                      </div>
-                    </div>
+                    (
+                      <>
+                        {
+                          <div id="card"
+                            key={article.author} className="card w-[30vw] sm:w-[40vw] md:w-[28vw] lg:w-[20vw] my-4 hover:opacity-[5] shadow-md">
+                            <div id="card-img" className="w-full">
+                              <img src={article.urlToImage} alt="" id="newsimg" className="h-[125px] sm:h-[100px] md:h-[130px] w-full" />
+                            </div>
+                            <div id="news-content"
+                              className="h-[150px] md:h-[180px] lg:h-[180px] xl:h-[180px] px-[5px] py-[5px] bg-white text-black text-sm">
+                              <h2 id="news-desc">{truncateText(article.description, 110)}</h2>
+                              <a href={article.url} className="link inline-block hover:underline hover:text-blue-700 my-[2px]"
+                                target="_blank" id="newslink">Read More...</a>
+                              <p id="publishedat">PublishedAt : {new Date(article.publishedAt).toLocaleDateString()}</p>
+                            </div>
+                          </div>
+                        }
+                      </>
+                    )
                   ))
                   :
                   <p>data error</p>
           }
-        </div>
+        </div >
       </main>
     </>
   )
