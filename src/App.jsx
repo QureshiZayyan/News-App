@@ -17,7 +17,7 @@ const App = () => {
         const Data = await fetch(`${url}${query}&apiKey=${apiKey}`);
         if (!Data.ok) throw new Error('error fetching data');
         const response = await Data.json();
-        setdata(response.articles)
+        setdata(response)
         console.log(response);
       } catch (er) {
         console.log(er);
@@ -58,10 +58,10 @@ const App = () => {
       <main>
 
         {
-          data.length > 0 ?
+          data.totalResults !== 0 ?
             data.map((article) => (
               <div id="card"
-                key={article} className="card w-[30vw] sm:w-[40vw] md:w-[28vw] lg:w-[20vw] xl:w-[268.8px] my-4 shadow-bs hover:opacity-[5]">
+                key={article.url} className="card w-[30vw] sm:w-[40vw] md:w-[28vw] lg:w-[20vw] xl:w-[268.8px] my-4 shadow-bs hover:opacity-[5]">
                 <div id="card-img" className="w-full">
                   <img src={article.urlToImage} alt="" id="newsimg" className="h-[125px] sm:h-[100px] md:h-[130px] rounded-t-[8px] w-full" />
                 </div>
@@ -74,7 +74,9 @@ const App = () => {
                 </div>
               </div>
             ))
-            : null}
+            : (
+              <p>error</p>
+            )}
       </main>
     </>
   )
