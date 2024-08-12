@@ -36,3 +36,32 @@ body {
     transform: rotate(360deg);
   }
 }
+
+@media (max-width:768px) {
+
+  nav {
+    flex-direction: column;
+  }
+
+  .heading {
+    margin-bottom: 15px;
+  }
+
+  #cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 48px 4.5vw;
+  }
+
+  #news-content {
+    height: 200px;
+    margin-top: -22px;
+  }
+
+  #card {
+    width: 42vw;
+  }
+
+  #card-img {
+    height: 150px;
+  }
+}
