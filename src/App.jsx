@@ -1,10 +1,13 @@
 import './App.css';
 import { useState, useEffect } from 'react';
+import { FiLoader } from "react-icons/fi";
 
 const App = () => {
-  const [data, setdata] = useState([]);
-  const [input, Setinput] = useState('');
-  const [query, setquery] = useState('mumbai');
+  const [data, setData] = useState([]);
+  const [input, SetInput] = useState('');
+  const [query, setQuery] = useState('cricket');
+  const [loading, setLoading] = useState(true);
+  const [errors, setErrors] = useState(false);
 
   const url = 'https://newsapi.org/v2/everything?q=';
   const apiKey = '8aeed9e210e1426fa21bf17f4c230b54';
@@ -12,25 +15,38 @@ const App = () => {
   useEffect(() => {
 
     const FetchData = async () => {
-
+      setLoading(true);
+      setErrors(false);
       try {
         const Data = await fetch(`${url}${query}&apiKey=${apiKey}`);
         if (!Data.ok) throw new Error('error fetching data');
         const response = await Data.json();
-        setdata(response)
+        setData(response.articles);
         console.log(response);
       } catch (er) {
         console.log(er);
+        setErrors(true);
       }
+      finally {
+        setLoading(false);
+      }
+
     }
     FetchData();
   }, [query])
 
+  const truncateText = (text, maxLength) => {
+    if (text.length <= maxLength) return text;
+    return text.substring(0, maxLength);
+  }
+
   const submit = (e) => {
     e.preventDefault();
     if (!input) return;
-    setquery(input.trim());
-    Setinput('');
+    setQuery(input.trim());
+    setData([]);
+    SetInput('');
+    setErrors(false)
   };
 
   return (
@@ -47,7 +63,7 @@ const App = () => {
             <form onSubmit={submit}>
               <input type="text" name="" id="input"
                 className="font-bold focus:outline-none w-[250px] py-[4px] px-[3.5px] text-black rounded-md"
-                placeholder="Search News" value={input} onChange={(e) => Setinput(e.target.value)} />
+                placeholder="Search News" value={input} onChange={(e) => SetInput(e.target.value)} />
               <button id="btn"
                 className="bg-blue-600 px-[6px] py-[4.6px] rounded-md font-bold text-white">Search</button>
             </form>
@@ -57,26 +73,43 @@ const App = () => {
 
       <main>
 
-        {
-          data.totalResults !== 0 ?
-            data.map((article) => (
-              <div id="card"
-                key={article.url} className="card w-[30vw] sm:w-[40vw] md:w-[28vw] lg:w-[20vw] xl:w-[268.8px] my-4 shadow-bs hover:opacity-[5]">
-                <div id="card-img" className="w-full">
-                  <img src={article.urlToImage} alt="" id="newsimg" className="h-[125px] sm:h-[100px] md:h-[130px] rounded-t-[8px] w-full" />
-                </div>
-                <div id="news-content"
-                  className="h-[150px] md:h-[180px] lg:h-[180px] xl:h-[180px] px-[5px] py-[5px] bg-white text-black rounded-b-[8px] text-sm">
-                  <h2 id="news-desc">{article.description}</h2>
-                  <a href={article.url} className="link inline-block hover:underline hover:text-blue-700 my-[2px]"
-                    target="_blank" id="newslink">Read More...</a>
-                  <p id="publishedat">PublishedAt: ${new Date(article.publishedAt).toLocaleDateString()}</p>
-                </div>
+        <div id="cards-container" className="grid md:grid-cols-3 lg:grid-cols-4 md:mx-[4.4vw] lg:mx-[6.5vw] xl:mx-[7.8vw] place-items-center my-12">
+          {
+            loading
+              ?
+              <div className='loader'>
+                <FiLoader size={50} className='loading-icon' />
               </div>
-            ))
-            : (
-              <p>error</p>
-            )}
+              :
+              errors ? <p>some error occured</p>
+                :
+                data && data.length > 0
+                  ?
+                  data.map((article) => (
+                    (
+                      <>
+                        {
+                          <div id="card"
+                            key={article.author} className="card w-[30vw] sm:w-[40vw] md:w-[28vw] lg:w-[20vw] my-4 hover:opacity-[5] shadow-md">
+                            <div id="card-img" className="w-full">
+                              <img src={article.urlToImage} alt="" id="newsimg" className="h-[125px] sm:h-[100px] md:h-[130px] w-full" />
+                            </div>
+                            <div id="news-content"
+                              className="h-[150px] md:h-[180px] lg:h-[180px] xl:h-[180px] px-[5px] py-[5px] bg-white text-black text-sm">
+                              <h2 id="news-desc">{truncateText(article.description, 110)}</h2>
+                              <a href={article.url} className="link inline-block hover:underline hover:text-blue-700 my-[2px]"
+                                target="_blank" id="newslink">Read More...</a>
+                              <p id="publishedat">PublishedAt : {new Date(article.publishedAt).toLocaleDateString()}</p>
+                            </div>
+                          </div>
+                        }
+                      </>
+                    )
+                  ))
+                  :
+                  <p>data error</p>
+          }
+        </div >
       </main>
     </>
   )
