@@ -9,8 +9,8 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [errors, setErrors] = useState(false);
 
-  const url = 'https://newsapi.org/v2/everything?q=';
-  const apiKey = '8aeed9e210e1426fa21bf17f4c230b54';
+  // const url = 'https://newsapi.org/v2/everything?q=';
+  // const apiKey = '8aeed9e210e1426fa21bf17f4c230b54';
 
   useEffect(() => {
 
@@ -18,7 +18,8 @@ const App = () => {
       setLoading(true);
       setErrors(false);
       try {
-        const Data = await fetch(`${url}${query}&apiKey=${apiKey}`);
+        // const Data = await fetch(`${url}${query}&apiKey=${apiKey}`);
+        const Data = await fetch(`https://gnews.io/api/v4/search?q=${query}&lang=en&max=10&apikey=8821a433cdf3f62a0a841d5d773d2797`);
         if (!Data.ok) throw new Error('error fetching data');
         const response = await Data.json();
         setData(response.articles);
@@ -91,7 +92,7 @@ const App = () => {
                         {
                           <div id='card' key={article.author} className="card w-[30vw] md:w-[28vw] lg:w-[19vw] my-4 hover:opacity-[5] shadow-md">
                             <div id="card-img" className="w-full">
-                              <img src={article.urlToImage} alt="" id="newsimg" className="h-[125px] md:h-[130px] w-full" />
+                              <img src={article.image} alt="" id="newsimg" className="h-[125px] md:h-[130px] w-full" />
                             </div>
                             <div id="news-content" className="h-[150px] md:h-[180px] lg:h-[180px] xl:h-[180px] px-[6px] py-[5px] bg-white text-black text-sm">
                               <h2 id="news-desc">{truncateText(article.description, 110)}</h2>
