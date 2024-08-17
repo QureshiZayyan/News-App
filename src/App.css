@@ -49,7 +49,7 @@ body {
 
   #cards-container {
     grid-template-columns: repeat(2, 1fr);
-    margin: 48px 4.5vw;
+    margin: 48px 2.1vw;
   }
 
   #news-content {
@@ -58,7 +58,7 @@ body {
   }
 
   #card {
-    width: 42vw;
+    width: 45vw;
   }
 
   #card-img {
