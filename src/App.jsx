@@ -74,7 +74,7 @@ const App = () => {
 
       <main>
 
-        <div id="cards-container" className="grid md:grid-cols-3 lg:grid-cols-4 md:mx-[4.5vw] lg:mx-[8.8vw] place-items-center my-12">
+        <div id="cards-container" className="grid md:grid-cols-3 lg:grid-cols-4 md:mx-[4.5vw] lg:mx-[9vw] place-items-center my-10">
           {
             loading
               ?
@@ -90,13 +90,13 @@ const App = () => {
                     (
                       <>
                         {
-                          <div id='card' key={article.author} className="card w-[30vw] md:w-[28vw] lg:w-[19vw] my-4 hover:opacity-[5] shadow-md">
+                          <div id='card' key={article.author} className="card w-[30vw] md:w-[28vw] lg:w-[19vw] my-4 hover:opacity-[5] shadow-2xl">
                             <div id="card-img" className="w-full">
                               <img src={article.image} alt="" id="newsimg" className="h-[125px] md:h-[130px] w-full" />
                             </div>
-                            <div id="news-content" className="h-[150px] md:h-[180px] lg:h-[180px] xl:h-[180px] px-[6px] py-[5px] bg-white text-black text-sm">
+                            <div id="news-content" className="h-[150px] md:h-[180px] lg:h-[180px] xl:h-[180px] px-[7px] py-[5px] bg-white text-black text-sm">
                               <h2 id="news-desc">{truncateText(article.description, 110)}</h2>
-                              <a href={article.url} className="link inline-block hover:underline hover:text-blue-700 my-[2px]"
+                              <a href={article.url} className="link inline-block hover:underline hover:text-blue-700 my-[4px]"
                                 target="_blank" id="newslink">Read More...</a>
                               <p id="publishedat">PublishedAt : {new Date(article.publishedAt).toLocaleDateString()}</p>
                             </div>

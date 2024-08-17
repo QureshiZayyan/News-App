@@ -1,11 +1,9 @@
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: rgb(242, 238, 238);
-  /* background-color: grey; */
 }
 
 .card {
-  border-radius: 13px;
+  border-radius: 10px;
   box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   overflow: hidden;
 }
@@ -41,6 +39,7 @@ body {
 
   nav {
     flex-direction: column;
+    justify-content: center;
   }
 
   .heading {
@@ -55,10 +54,12 @@ body {
   #news-content {
     height: 200px;
     margin-top: -22px;
+    padding: 5px 6.5px 5px 6.5px;
   }
 
   #card {
-    width: 45vw;
+    width: 45.1vw;
+    border-radius: 9px;
   }
 
   #card-img {
