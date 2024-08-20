@@ -28,6 +28,7 @@ const App = () => {
       }
       finally {
         setLoading(false);
+        console.log('data fetched');
       }
 
     }
