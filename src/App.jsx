@@ -94,7 +94,7 @@ const App = () => {
                             </div>
                             <div id="news-content" className="h-[150px] md:h-[180px] lg:h-[180px] xl:h-[180px] px-[7px] py-[5px] bg-white text-black text-sm">
                               <h2 id="news-desc">{truncateText(article.description, 110)}</h2>
-                              <a href={article.url} className="link inline-block hover:underline hover:text-blue-700 my-[4px]"
+                              <a href={article.url} className="link inline-block my-[4px] text-blue-600"
                                 target="_blank" id="newslink">Read More...</a>
                               <p id="publishedat">PublishedAt : {new Date(article.publishedAt).toLocaleDateString()}</p>
                             </div>
