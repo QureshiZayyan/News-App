@@ -1,21 +1,29 @@
 /* Hide scrollbar for all browsers */
 ::-webkit-scrollbar {
-  display: none; /* Safari and Chrome */
+  display: none;
+  /* Safari and Chrome */
 }
 
-html, body {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+html,
+body {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 body,
 html {
-  scroll-behavior:smooth;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
   background-color: rgb(245, 241, 241);
+}
+
+nav {
+  background-color: rgb(19, 19, 19);
 }
 
 .card {

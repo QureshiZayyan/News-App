@@ -51,20 +51,20 @@ const App = () => {
   return (
     <>
       <header className="sticky top-0 z-[1]">
-        <nav className="flex justify-between items-center px-[20px] py-[10.5px] shadow-md bg-blue-200">
+        <nav className="flex justify-between items-center px-[20px] py-[10.5px] shadow-md">
           <div className="heading">
             <a href="" onClick={() => window.location.reload()}>
-              <h2 id="reload" className="text-2xl font-extrabold cursor-pointer text-black">NewsWeb</h2>
+              <h2 id="reload" className="text-2xl font-extrabold cursor-pointer text-white">NewsWeb</h2>
             </a>
           </div >
 
           <div className="search">
             <form onSubmit={submit}>
               <input type="text" name="" id="input"
-                className="font-bold focus:outline-none w-[250px] py-[4px] px-[3.5px] text-black rounded-md"
+                className="font-bold focus:outline-none w-[250px] py-[4.5px] px-[5px] text-black rounded-md"
                 placeholder="Search News" value={input} onChange={(e) => SetInput(e.target.value)} />
               <button id="btn"
-                className="bg-blue-600 px-[6px] py-[4.6px] rounded-md font-bold text-white ml-[5px]">Search</button>
+                className="px-[6px] py-[4.6px] bg-blue-500 rounded-md font-bold text-white ml-[5px]">Search</button>
             </form>
           </div >
         </nav >
