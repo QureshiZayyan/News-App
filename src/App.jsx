@@ -61,7 +61,7 @@ const App = () => {
           <div className="search">
             <form onSubmit={submit}>
               <input type="text" name="" id="input"
-                className="font-bold focus:outline-none w-[250px] py-[4.5px] px-[5px] text-black rounded-md"
+                className="font-bold focus:outline-none w-[250px] py-[4.2px] px-[5px] text-black rounded-md"
                 placeholder="Search News" value={input} onChange={(e) => SetInput(e.target.value)} />
               <button id="btn"
                 className="px-[6px] py-[4.6px] bg-blue-500 rounded-md font-bold text-white ml-[5px]">Search</button>
@@ -72,7 +72,7 @@ const App = () => {
 
       <main>
 
-        <div id="cards-container" className="grid md:grid-cols-3 lg:grid-cols-4 md:mx-[4.5vw] lg:mx-[9vw] place-items-center my-10">
+        <div id="cards-container" className="grid md:grid-cols-3 lg:grid-cols-4 md:mx-[4.5vw] lg:mx-[9.5vw] place-items-center my-10">
           {
             loading
               ?
@@ -92,7 +92,7 @@ const App = () => {
                             <div id="card-img" className="w-full">
                               <img src={article.image} alt="" id="newsimg" className="h-[125px] md:h-[130px] w-full" />
                             </div>
-                            <div id="news-content" className="h-[150px] md:h-[180px] lg:h-[180px] xl:h-[180px] px-[7px] py-[5px] bg-white text-black text-sm">
+                            <div id="news-content" className="h-[150px] md:h-[180px] lg:h-[170px] xl:h-[180px] px-[7px] py-[5px] bg-white text-black text-sm">
                               <h2 id="news-desc">{truncateText(article.description, 110)}</h2>
                               <a href={article.url} className="link inline-block my-[4px] text-blue-600"
                                 target="_blank" id="newslink">Read More...</a>
