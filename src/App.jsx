@@ -8,6 +8,7 @@ const App = () => {
   const [query, setQuery] = useState('cricket');
   const [loading, setLoading] = useState(true);
   const [errors, setErrors] = useState(false);
+  const [result, setResult] = useState('');
 
   const apiKey = '8821a433cdf3f62a0a841d5d773d2797';
 
@@ -16,11 +17,13 @@ const App = () => {
     const FetchData = async () => {
       setLoading(true);
       setErrors(false);
+      setResult('');
       try {
         const Data = await fetch(`https://gnews.io/api/v4/search?q=${query}&lang=en&max=10&apikey=${apiKey}`);
         if (!Data.ok) throw new Error('error fetching data');
         const response = await Data.json();
         setData(response.articles);
+        setResult(query);
         console.log(response);
       } catch (er) {
         console.log(er);
@@ -45,7 +48,7 @@ const App = () => {
     setQuery(input.trim());
     setData([]);
     SetInput('');
-    setErrors(false)
+    setErrors(false);
   };
 
   return (
@@ -72,7 +75,10 @@ const App = () => {
 
       <main>
 
-        <div id="cards-container" className="grid md:grid-cols-3 lg:grid-cols-4 md:mx-[4.5vw] lg:mx-[9.5vw] place-items-center my-10">
+        {result ? <h3 className='results text-center text-2xl relative top-10'>Showing Results for {result}</h3> : null}
+
+        <div id="cards-container" className="grid md:grid-cols-3 lg:grid-cols-4 md:mx-[4.5vw] lg:mx-[9.5vw] place-items-center my-14">
+
           {
             loading
               ?
