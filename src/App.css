@@ -62,7 +62,6 @@ nav {
   nav {
     flex-direction: column;
     justify-content: center;
-
   }
 
   .heading {
@@ -75,13 +74,13 @@ nav {
   }
 
   #news-content {
-    height: 210px;
+    height: 220px;
     margin-top: -25px;
     padding: 5px 6.5px 5px 6.5px;
   }
 
   #card {
-    width: 45.1vw;
+    width: 45.5vw;
     border-radius: 9px;
   }
 
