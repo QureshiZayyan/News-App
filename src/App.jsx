@@ -8,6 +8,7 @@ const App = () => {
   const [query, setQuery] = useState('cricket');
   const [loading, setLoading] = useState(true);
   const [errors, setErrors] = useState(false);
+  const [result, setResult] = useState('');
 
   const apiKey = '8821a433cdf3f62a0a841d5d773d2797';
 
@@ -16,11 +17,13 @@ const App = () => {
     const FetchData = async () => {
       setLoading(true);
       setErrors(false);
+      setResult('');
       try {
         const Data = await fetch(`https://gnews.io/api/v4/search?q=${query}&lang=en&max=10&apikey=${apiKey}`);
         if (!Data.ok) throw new Error('error fetching data');
         const response = await Data.json();
         setData(response.articles);
+        setResult(query);
         console.log(response);
       } catch (er) {
         console.log(er);
@@ -47,26 +50,26 @@ const App = () => {
     setQuery(input.trim());
     setData([]);
     SetInput('');
-    setErrors(false)
+    setErrors(false);
   };
 
   return (
     <>
       <header className="sticky top-0 z-[1]">
-        <nav className="flex justify-between items-center px-[20px] py-[10.5px] shadow-md bg-blue-200">
+        <nav className="flex justify-between items-center px-[20px] py-[10.5px] shadow-md">
           <div className="heading">
             <a href="" onClick={() => window.location.reload()}>
-              <h2 id="reload" className="text-2xl font-extrabold cursor-pointer text-black">NewsWeb</h2>
+              <h2 id="reload" className="text-2xl font-extrabold cursor-pointer text-white">NewsWeb</h2>
             </a>
           </div >
 
           <div className="search">
             <form onSubmit={submit}>
               <input type="text" name="" id="input"
-                className="font-bold focus:outline-none w-[250px] py-[4px] px-[3.5px] text-black rounded-md"
+                className="font-bold focus:outline-none w-[250px] py-[4.2px] px-[5px] text-black rounded-md"
                 placeholder="Search News" value={input} onChange={(e) => SetInput(e.target.value)} />
               <button id="btn"
-                className="bg-blue-600 px-[6px] py-[4.6px] rounded-md font-bold text-white ml-[5px]">Search</button>
+                className="px-[6px] py-[4.6px] bg-blue-500 rounded-md font-bold text-white ml-[5px]">Search</button>
             </form>
           </div >
         </nav >
@@ -74,7 +77,10 @@ const App = () => {
 
       <main>
 
-        <div id="cards-container" className="grid md:grid-cols-3 lg:grid-cols-4 md:mx-[4.5vw] lg:mx-[9vw] place-items-center my-10">
+        {result ? <h3 className='results text-center text-2xl relative top-10'>Showing Results for {result}</h3> : null}
+
+        <div id="cards-container" className="grid md:grid-cols-3 lg:grid-cols-4 md:mx-[4.5vw] lg:mx-[9.5vw] place-items-center my-14">
+
           {
             loading
               ?
@@ -94,9 +100,9 @@ const App = () => {
                             <div id="card-img" className="w-full">
                               <img src={article.image} alt="" id="newsimg" className="h-[125px] md:h-[130px] w-full" />
                             </div>
-                            <div id="news-content" className="h-[150px] md:h-[180px] lg:h-[180px] xl:h-[180px] px-[7px] py-[5px] bg-white text-black text-sm">
+                            <div id="news-content" className="h-[150px] md:h-[180px] lg:h-[170px] xl:h-[180px] px-[7px] py-[5px] bg-white text-black text-sm">
                               <h2 id="news-desc">{truncateText(article.description, 110)}</h2>
-                              <a href={article.url} className="link inline-block hover:underline hover:text-blue-700 my-[4px]"
+                              <a href={article.url} className="link inline-block my-[4px] text-blue-600"
                                 target="_blank" id="newslink">Read More...</a>
                               <p id="publishedat">PublishedAt : {new Date(article.publishedAt).toLocaleDateString()}</p>
                             </div>

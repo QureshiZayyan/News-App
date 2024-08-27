@@ -1,5 +1,29 @@
+/* Hide scrollbar for all browsers */
+::-webkit-scrollbar {
+  display: none;
+  /* Safari and Chrome */
+}
+
+html,
+body {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+body,
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
+  background-color: rgb(242, 239, 239);
+}
+
+nav {
+  background-color: rgb(19, 19, 19);
 }
 
 .card {
@@ -10,9 +34,7 @@ body {
 
 .loader {
   position: absolute;
-  color: black;
-  /* color: rgb(92, 90, 90); */
-  /* color: white; */
+  color: grey;
   margin: 0 auto;
   text-align: center;
 }
@@ -35,7 +57,7 @@ body {
   }
 }
 
-@media (max-width:768px) {
+@media (min-width:363px) and (max-width:768px) {
 
   nav {
     flex-direction: column;
@@ -52,17 +74,53 @@ body {
   }
 
   #news-content {
+    height: 220px;
+    margin-top: -25px;
+    padding: 5px 6.5px 5px 6.5px;
+  }
+
+  #card {
+    width: 45.5vw;
+    border-radius: 9px;
+  }
+
+  #card-img {
+    height: 150px;
+  }
+}
+
+@media (max-width:362px) {
+  nav {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .heading {
+    margin-bottom: 15px;
+  }
+
+  #cards-container {
+    grid-template-columns: repeat(1, 1fr);
+    margin: 48px auto;
+  }
+
+  #news-content {
     height: 200px;
     margin-top: -22px;
     padding: 5px 6.5px 5px 6.5px;
   }
 
   #card {
-    width: 45.1vw;
+    width: 70vw;
     border-radius: 9px;
   }
 
   #card-img {
     height: 150px;
+  }
+
+  #btn {
+    margin-top: 17px;
   }
 }
