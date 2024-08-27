@@ -8,7 +8,7 @@ const App = () => {
   const [query, setQuery] = useState('cricket');
   const [loading, setLoading] = useState(true);
   const [errors, setErrors] = useState(false);
-  const [result, setResult] = useState('');
+  // const [result, setResult] = useState('');
 
   const apiKey = '8821a433cdf3f62a0a841d5d773d2797';
 
@@ -23,7 +23,6 @@ const App = () => {
         if (!Data.ok) throw new Error('error fetching data');
         const response = await Data.json();
         setData(response.articles);
-        setResult(query);
         console.log(response);
       } catch (er) {
         console.log(er);
@@ -31,8 +30,6 @@ const App = () => {
       }
       finally {
         setLoading(false);
-        console.log('data fetched');
-        console.log('data fetched');
       }
 
     }
@@ -77,7 +74,7 @@ const App = () => {
 
       <main>
 
-        {result ? <h3 className='results text-center text-2xl relative top-10'>Showing Results for {result}</h3> : null}
+        {/* {result ? <h3 className='results text-center text-2xl relative top-10'>Showing Results for {result}</h3> : null} */}
 
         <div id="cards-container" className="grid md:grid-cols-3 lg:grid-cols-4 md:mx-[4.5vw] lg:mx-[9.5vw] place-items-center my-14">
 
