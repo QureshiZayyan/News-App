@@ -9,6 +9,8 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [errors, setErrors] = useState(false);
   const [searchresult, setSearchresult] = useState('');
+console.log('welcome');
+
 
   const apiKey = '8821a433cdf3f62a0a841d5d773d2797';
 
