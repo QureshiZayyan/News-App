@@ -1,5 +1,6 @@
 import { useState, createContext } from "react";
 const StateContext = createContext();
+console.log('this is a context');
 
 function StateProvider({ children }) {
   const [data, setData] = useState([]);
