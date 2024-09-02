@@ -1,15 +1,11 @@
-/* Hide scrollbar for all browsers */
 ::-webkit-scrollbar {
   display: none;
-  /* Safari and Chrome */
 }
 
 html,
 body {
   -ms-overflow-style: none;
-  /* IE and Edge */
   scrollbar-width: none;
-  /* Firefox */
 }
 
 body,

@@ -1,18 +1,16 @@
 import { useState, createContext } from "react";
-const stateContext = createContext();
+const StateContext = createContext();
 
 function StateProvider({ children }) {
   const [data, setData] = useState([]);
   const [query, setQuery] = useState('india');
   const [input, setInput] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [errors, setErrors] = useState(false);
 
   return (
-    <stateContext.Provider value={{ query, setQuery, input, setInput, loading, setLoading, errors, setErrors, data, setData }}>
+    <StateContext.Provider value={{ query, setQuery, input, setInput, data, setData }}>
       {children}
-    </stateContext.Provider>
+    </StateContext.Provider>
   );
 }
 
-export { stateContext, StateProvider };
+export { StateContext, StateProvider };
