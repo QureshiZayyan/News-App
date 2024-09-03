@@ -3,12 +3,13 @@ import { StateContext } from './Context';
 
 const Navbar = () => {
 
-  const { input, setInput, setErrors, setQuery } = useContext(StateContext);
+  const { input, setInput, setErrors, setQuery, setTitle, query } = useContext(StateContext);
 
   const submit = (e) => {
     e.preventDefault();
     if (!input) return;
     setQuery(input.trim());
+    setTitle(input);
     setInput('');
     setErrors(false);
   };
@@ -33,7 +34,6 @@ const Navbar = () => {
         </div >
       </nav >
     </header >
-
   )
 }
 

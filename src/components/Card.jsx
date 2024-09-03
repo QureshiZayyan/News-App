@@ -1,19 +1,21 @@
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import { StateContext } from "./Context";
 import { FiLoader } from "react-icons/fi";
 
 const Card = () => {
-  const { loading, errors, data setData, query } = useContext(StateContext);
+  const { errors, setErrors, query, setData, data, setTitle } = useContext(StateContext);
+  const [loading, setloading] = useState(false);
+
   const apiKey = '8821a433cdf3f62a0a841d5d773d2797';
 
   const truncateText = (text, maxLength) => {
     if (text.length <= maxLength) return text;
-    return text.substring(0, maxLength) + "..."; // Add ellipsis to truncated text
+    return text.substring(0, maxLength) + "...";
   }
 
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true);
+      setloading(true);
       setErrors(false);
       try {
         const response = await fetch(`https://gnews.io/api/v4/search?q=${query}&lang=en&max=10&apikey=${apiKey}`);
@@ -24,13 +26,14 @@ const Card = () => {
       } catch (error) {
         console.log(error);
         setErrors(true);
+        setTitle('');
       } finally {
-        setLoading(false);
+        setloading(false);
       }
     }
 
     fetchData();
-  }, [query, setData, apiKey]);
+  }, [query]);
 
   return (
     <>
@@ -38,8 +41,6 @@ const Card = () => {
         <div className='loader'>
           <FiLoader size={50} className='loading-icon' />
         </div>
-      ) : errors ? (
-        <p>Error occurred</p>
       ) : data && data.length > 0 ? (
         data.map((article) => (
           <div key={article.url} id='card' className="card w-[30vw] md:w-[28vw] lg:w-[19vw] my-[14px] hover:opacity-[5] shadow-lg">
@@ -53,7 +54,12 @@ const Card = () => {
             </div>
           </div>
         ))
-      ) : null}
+      ) : errors ?
+        <p>Lorem ipsum dolor sit amet.</p>
+        :
+        null
+      }
+
     </>
   );
 }
