@@ -7,7 +7,7 @@ import { useContext } from 'react';
 const App = () => {
 
   const { title } = useContext(StateContext);
-  
+
   return (
     <main>
       <Navbar />
