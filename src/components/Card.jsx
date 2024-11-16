@@ -43,19 +43,19 @@ const Card = () => {
         </div>
       ) : data && data.length > 0 ? (
         data.map((article) => (
-          <div key={article.url} id='card' className="card w-[30vw] md:w-[28vw] lg:w-[19vw] my-[14px] hover:opacity-[5] shadow-lg">
+          <div key={article.url} id='card' className="card relative w-[30vw] md:w-[28vw] lg:w-[21vw] my-[19px] hover:opacity-[5] shadow-xl bg-white">
             <div id="card-img" className="w-full">
-              <img src={article.image} alt="Article" id="newsimg" className="h-[125px] md:h-[130px] w-full" />
+              <img src={article.image} alt="Article" id="newsimg" className="h-[125px] md:h-[130px] w-full p-[10px] rounded-[20px]" />
             </div>
-            <div id="news-content" className="h-[150px] md:h-[180px] lg:h-[170px] xl:h-[180px] px-[7px] py-[5px] bg-white text-black text-sm">
+            <div id="news-content" className="h-[150px] md:h-[180px] lg:h-[200px] xl:h-[180px] px-[9px] py-[5px] bg-white text-black text-sm">
               <h2 id="news-desc">{truncateText(article.description, 110)}</h2>
-              <a href={article.url} className="link inline-block my-[4px] text-blue-600" target="_blank" rel="noopener noreferrer" id="newslink">Read More...</a>
-              <p id="publishedat">Published At: {new Date(article.publishedAt).toLocaleDateString()}</p>
+              <p id="publishedat" className="my-3 font-bold">Published At: {new Date(article.publishedAt).toLocaleDateString()}</p>
+              <a href={article.url} className="link inline-block my-[4px] text-white absolute bottom-[14px] bg-black  py-[5px] px-[8px] rounded-[5px]" target="_blank" rel="noopener noreferrer" id="newslink">Read More...</a>
             </div>
           </div>
         ))
       ) : errors ?
-        <p>Lorem ipsum dolor sit amet.</p>
+        <p className="text-bold text-center">Oops! Something Went Wrong</p>
         :
         null
       }
