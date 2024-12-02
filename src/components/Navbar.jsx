@@ -1,9 +1,9 @@
 import { useContext } from 'react';
-import { StateContext } from './Context';
+import { StateContext } from '../states/StateProvider';
 
 const Navbar = () => {
 
-  const { input, setInput, setErrors, setQuery, setTitle, query } = useContext(StateContext);
+  const { input, setInput, setErrors, setQuery, setTitle } = useContext(StateContext);
 
   const submit = (e) => {
     e.preventDefault();
@@ -26,7 +26,7 @@ const Navbar = () => {
         <div className="search">
           <form onSubmit={submit}>
             <input type="text" name="" id="input"
-              className="font-bold focus:outline-none w-[250px] py-[4.2px] px-[5px] text-black rounded-md"
+              className="focus:outline-none w-[250px] py-[4.2px] px-[5px] text-black rounded-md"
               placeholder="Search News" value={input} onChange={(e) => setInput(e.target.value)} />
             <button id="btn"
               className="px-[6px] py-[4.6px] bg-blue-500 rounded-md font-bold text-white ml-[5px]">Search</button>
@@ -37,4 +37,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export { Navbar }
