@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { StateContext } from '../states/StateProvider';
 
-const Navbar = () => {
+export const Navbar = () => {
 
   const { input, setInput, setErrors, setQuery, setTitle } = useContext(StateContext);
 
@@ -36,5 +36,3 @@ const Navbar = () => {
     </header >
   )
 }
-
-export { Navbar }

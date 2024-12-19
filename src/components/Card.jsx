@@ -2,7 +2,7 @@ import { useEffect, useContext, useState } from "react";
 import { StateContext } from "../states/StateProvider";
 import { FiLoader } from "react-icons/fi";
 
-const Card = () => {
+export const Card = () => {
   const { setErrors, query, setData, data, setTitle } = useContext(StateContext);
   const [loading, setloading] = useState(false);
 
@@ -61,5 +61,3 @@ const Card = () => {
     </>
   );
 }
-
-export { Card };
