@@ -8,10 +8,8 @@ export const Navbar = () => {
   const submit = (e) => {
     e.preventDefault();
     if (!input) return;
-    setQuery(input.trim());
-    setTitle(input);
+    setQuery(input);
     setInput('');
-    setErrors(false);
   };
 
   return (

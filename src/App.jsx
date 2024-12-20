@@ -6,7 +6,7 @@ import { useContext } from 'react';
 
 const App = () => {
 
-  const { title, data } = useContext(StateContext);
+  const { title, data} = useContext(StateContext);
 
   return (
     <main>

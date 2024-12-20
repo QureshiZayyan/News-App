@@ -3,7 +3,7 @@ import { StateContext } from "../states/StateProvider";
 import { FiLoader } from "react-icons/fi";
 
 export const Card = () => {
-  const { setErrors, query, setData, data, setTitle } = useContext(StateContext);
+  const { setErrors, query, setData, data, setTitle, input } = useContext(StateContext);
   const [loading, setloading] = useState(false);
 
   const apiKey = import.meta.env.VITE_API_KEY;
@@ -21,7 +21,6 @@ export const Card = () => {
       if (!response.ok) throw new Error('Error fetching data');
       const data = await response.json();
       setData(data.articles);
-      console.log(data);
     } catch (error) {
       console.log(error);
       setErrors(true);
