@@ -3,7 +3,7 @@ import { StateContext } from '../states/StateProvider';
 
 export const Navbar = () => {
 
-  const { input, setInput, setErrors, setQuery, setTitle } = useContext(StateContext);
+  const { input, setInput, setQuery } = useContext(StateContext);
 
   const submit = (e) => {
     e.preventDefault();

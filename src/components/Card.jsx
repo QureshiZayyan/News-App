@@ -21,6 +21,7 @@ export const Card = () => {
       if (!response.ok) throw new Error('Error fetching data');
       const data = await response.json();
       setData(data.articles);
+      setTitle(input);
     } catch (error) {
       console.log(error);
       setErrors(true);

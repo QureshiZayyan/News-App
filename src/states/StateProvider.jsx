@@ -6,10 +6,9 @@ function StateProvider({ children }) {
   const [query, setQuery] = useState('india');
   const [input, setInput] = useState('');
   const [errors, setErrors] = useState('');
-  const [title, setTitle] = useState(query);
 
   return (
-    <StateContext.Provider value={{ input, setInput, data, setData, setErrors, errors, query, setQuery, title, setTitle }}>
+    <StateContext.Provider value={{ input, setInput, data, setData, setErrors, errors, query, setQuery }}>
       {children}
     </StateContext.Provider>
   );
