@@ -9,7 +9,6 @@ export const Navbar = () => {
     e.preventDefault();
     if (!input) return;
     setQuery(input);
-    setInput('');
   };
 
   return (

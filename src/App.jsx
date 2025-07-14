@@ -6,13 +6,13 @@ import { useContext } from 'react';
 
 const App = () => {
 
-  const { query } = useContext(StateContext);
+  const { heading } = useContext(StateContext);
 
   return (
     <main>
       <Navbar />
-      <h3 className='text-center text-2xl relative top-12'>Showing Results for {query}</h3>
-      <div id="cards-container" className="grid md:grid-cols-3 lg:grid-cols-4 md:mx-[10vw] lg:mx-[9.7vw] place-items-center my-20">
+      {heading && <h3 className='text-center text-2xl relative font-semibold top-12'>Showing Results for {heading}</h3>}
+      <div id="cards-container" className="grid lg:grid-cols-4 md:mx-[10vw] lg:mx-[4vw] place-items-center my-16">
         <Card />
       </div>
     </main>

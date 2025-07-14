@@ -15,7 +15,7 @@ html {
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: rgb(244, 239, 239);
+  background-color: rgb(241, 238, 238);
 }
 
 nav {
@@ -23,8 +23,7 @@ nav {
 }
 
 .card {
-  border-radius: 10px;
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  border-radius: 12px;
   overflow: hidden;
 }
 
@@ -53,7 +52,7 @@ nav {
   }
 }
 
-@media (min-width:363px) and (max-width:768px) {
+@media (min-width:358px) and (max-width:540px) {
 
   nav {
     flex-direction: column;
@@ -66,18 +65,17 @@ nav {
 
   #cards-container {
     grid-template-columns: repeat(2, 1fr);
-    margin: 48px 2.1vw;
+    margin: 48px 1.5vw;
   }
 
   #news-content {
     height: 220px;
     margin-top: -25px;
-    padding: 5px 6.5px 5px 6.5px;
+    padding: 5px 11px 5px 11px;
   }
 
   #card {
-    width: 45.5vw;
-    border-radius: 9px;
+    width: 47vw;
   }
 
   #card-img {
@@ -85,7 +83,35 @@ nav {
   }
 }
 
-@media (max-width:362px) {
+@media(min-width:514px) and (max-width:700px) {
+  #news-content {
+    height: 245px;
+  }
+
+}
+
+@media(min-width:701px) and (max-width:1023px) {
+  #news-content {
+    height: 200px;
+    padding: 5px 10px 5px 10px;
+  }
+}
+
+
+@media (min-width:541px) and (max-width:1023px) {
+  #cards-container {
+    grid-template-columns: repeat(3, 1fr);
+    margin: 48px 1.2vw;
+  }
+
+  #card {
+    width: 31vw;
+  }
+
+
+}
+
+/* @media (max-width:362px) {
   nav {
     flex-direction: column;
     justify-content: center;
@@ -119,4 +145,13 @@ nav {
   #btn {
     margin-top: 17px;
   }
+} */
+
+@media (max-width:365px) {
+
+  #news-content {
+    height: 265px;
+    margin-top: -25px;
+  }
+
 }
