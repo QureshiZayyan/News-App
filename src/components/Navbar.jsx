@@ -16,14 +16,14 @@ export const Navbar = () => {
       <nav className="flex justify-between items-center px-[20px] py-[10.5px] shadow-md">
         <div className="heading">
           <a href="" onClick={() => window.location.reload()}>
-            <h2 id="reload" className="text-2xl font-extrabold cursor-pointer text-white">NewsWeb</h2>
+            <h2 id="reload" className="text-[21px] font-extrabold cursor-pointer text-white">NewsWeb</h2>
           </a>
         </div >
 
         <div className="search">
           <form onSubmit={submit}>
-            <input type="text" name="" id="input"
-              className="focus:outline-none w-[250px] py-[4.2px] px-[5px] text-black rounded-md"
+            <input type="text" id="input"
+              className="focus:outline-none w-[250px] py-[4.2px] px-[5.5px] text-black rounded-md"
               placeholder="Search News" value={input} onChange={(e) => setInput(e.target.value)} />
             <button id="btn"
               className="px-[6px] py-[4.6px] bg-blue-500 rounded-md font-bold text-white ml-[5px]">Search</button>

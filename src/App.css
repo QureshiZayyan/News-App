@@ -54,9 +54,14 @@ nav {
 
 @media (min-width:358px) and (max-width:540px) {
 
+  #heading {
+    font-size: 17px !important;
+  }
+
   nav {
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: center;
+    text-align: center;
   }
 
   .heading {
@@ -99,6 +104,7 @@ nav {
 
 
 @media (min-width:541px) and (max-width:1023px) {
+
   #cards-container {
     grid-template-columns: repeat(3, 1fr);
     margin: 48px 1.2vw;
@@ -111,7 +117,7 @@ nav {
 
 }
 
-/* @media (max-width:362px) {
+@media (max-width:362px) {
   nav {
     flex-direction: column;
     justify-content: center;
@@ -145,7 +151,7 @@ nav {
   #btn {
     margin-top: 17px;
   }
-} */
+}
 
 @media (max-width:365px) {
 
