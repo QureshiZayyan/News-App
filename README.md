@@ -1,6 +1,7 @@
-## 📰 News Web App
+## 📰 NewsWeb - News Web App
 
-A news web application that delivers the latest news articles and updates from various sources. It allows users to stay informed about current events in categories like politics, sports, technology, and entertainment
+A News Web Application that delivers the latest news articles and updates from various sources. It allows users to stay informed about current events in categories like politics, sports, technology, and entertainment.
+
 ---
 
 ## 🌟 Features
