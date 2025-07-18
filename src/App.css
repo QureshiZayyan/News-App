@@ -59,7 +59,7 @@ nav {
   }
 
   nav {
-    /* flex-direction: column; */
+    flex-direction: column;
     justify-content: center;
     text-align: center;
   }
@@ -93,6 +93,13 @@ nav {
     height: 245px;
   }
 
+  nav {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+
 }
 
 @media(min-width:701px) and (max-width:1023px) {
@@ -117,7 +124,7 @@ nav {
 
 }
 
-@media (max-width:362px) {
+@media (max-width:350px) {
   nav {
     flex-direction: column;
     justify-content: center;

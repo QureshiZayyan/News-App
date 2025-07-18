@@ -11,7 +11,7 @@ const App = () => {
   return (
     <main>
       <Navbar />
-      {heading && <h3 id='heading' className='text-center text-2xl relative font-semibold top-12'>Showing Results for {heading}</h3>}
+      {heading && <h3 className='text-center text-2xl relative font-semibold top-12'>Showing Results for {heading}</h3>}
       <div id="cards-container" className="grid lg:grid-cols-4 md:mx-[10vw] lg:mx-[4vw] place-items-center my-16">
         <Card />
       </div>
